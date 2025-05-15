@@ -7,7 +7,7 @@ The official website for The Byte Array, a nonprofit open-source organization de
 - 🌓 Dark/Light mode support
 - 📱 Fully responsive design
 - ♿ Accessibility focused
-- 🚀 Built with Next.js 14
+- 🚀 Built with Next.js 15
 - 🎨 Styled with Tailwind CSS
 - 🧩 Uses shadcn/ui components
 
