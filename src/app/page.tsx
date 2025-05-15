@@ -5,6 +5,8 @@ import { Textarea } from "@/components/ui/textarea";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Github } from "lucide-react";
 import { SocialIcons } from "@/components/social-icons";
+import { GithubRepos } from "@/components/GithubRepos";
+import { TeamMember } from "@/components/TeamMember";
 
 export default function Home() {
   return (
@@ -56,26 +58,7 @@ export default function Home() {
       <section id="projects" className="container mx-auto max-w-7xl px-4 py-16 md:py-20 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-[980px]">
           <h2 className="text-3xl font-bold tracking-tight mb-8">Our Projects</h2>
-          <div className="grid gap-6 sm:grid-cols-2">
-            <Card>
-              <CardHeader>
-                <CardTitle>Convertit</CardTitle>
-                <CardDescription>Simple and effective audio converter</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground mb-4">
-                  An open-source audio converter that makes it easy to convert between different audio
-                  formats. Built with simplicity and effectiveness in mind.
-                </p>
-                <Button asChild>
-                  <a href="https://github.com/TheByteArray/Convertit" target="_blank" rel="noopener noreferrer">
-                    <Github className="mr-2 h-4 w-4" />
-                    View on GitHub
-                  </a>
-                </Button>
-              </CardContent>
-            </Card>
-          </div>
+          <GithubRepos />
         </div>
       </section>
 
@@ -83,28 +66,8 @@ export default function Home() {
       <section id="team" className="container mx-auto max-w-7xl px-4 py-16 md:py-20 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-[980px]">
           <h2 className="text-3xl font-bold tracking-tight mb-8">Our Team</h2>
-          <div>
-            <Card className="w-full max-w-md">
-              <CardHeader>
-                <div className="flex items-center gap-4">
-                  <Avatar className="h-16 w-16">
-                    <AvatarImage src="/tamim-avatar.jpg" alt="Tamim Hossain" />
-                    <AvatarFallback>TH</AvatarFallback>
-                  </Avatar>
-                  <div>
-                    <CardTitle>Tamim Hossain</CardTitle>
-                    <CardDescription>Founder & Lead Developer</CardDescription>
-                  </div>
-                </div>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground">
-                  A passionate developer with expertise in mobile, backend, and system programming.
-                  Dedicated to creating high-quality open-source software and fostering a strong
-                  developer community.
-                </p>
-              </CardContent>
-            </Card>
+          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+            <TeamMember />
           </div>
         </div>
       </section>
