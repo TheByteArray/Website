@@ -6,6 +6,7 @@ import { ThemeToggle } from "./theme-toggle";
 import { Button } from "./ui/button";
 import { useState } from "react";
 import { SocialIcons } from "./social-icons";
+import { cn } from "@/lib/utils";
 
 export function SiteHeader() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -15,22 +16,26 @@ export function SiteHeader() {
       <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           <div className="flex items-center gap-6">
-            <Link href="/" className="flex items-center space-x-2">
-              <span className="font-bold text-xl whitespace-nowrap">The byte[]</span>
+            <Link href="/" className="flex items-center space-x-2 group">
+              <span className="font-bold text-xl whitespace-nowrap bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent">
+                The byte[]
+              </span>
             </Link>
             <nav className="hidden md:flex gap-6">
-              <Link href="#about" className="text-sm font-medium transition-colors hover:text-primary">
-                About
-              </Link>
-              <Link href="#projects" className="text-sm font-medium transition-colors hover:text-primary">
-                Projects
-              </Link>
-              <Link href="#team" className="text-sm font-medium transition-colors hover:text-primary">
-                Team
-              </Link>
-              <Link href="#contact" className="text-sm font-medium transition-colors hover:text-primary">
-                Contact
-              </Link>
+              {[
+                { href: "#about", label: "About" },
+                { href: "#projects", label: "Projects" },
+                { href: "#team", label: "Team" },
+                { href: "#contact", label: "Contact" },
+              ].map((item) => (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className="text-sm font-medium transition-colors hover:text-primary relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-primary after:transition-all hover:after:w-full"
+                >
+                  {item.label}
+                </Link>
+              ))}
             </nav>
           </div>
           <div className="flex items-center gap-4">
@@ -50,43 +55,33 @@ export function SiteHeader() {
           </div>
         </div>
         {/* Mobile menu */}
-        {isMenuOpen && (
-          <div className="md:hidden">
-            <nav className="flex flex-col gap-4 pb-4">
+        <div
+          className={cn(
+            "md:hidden overflow-hidden transition-all duration-300 ease-in-out",
+            isMenuOpen ? "max-h-64" : "max-h-0"
+          )}
+        >
+          <nav className="flex flex-col gap-4 pb-4">
+            {[
+              { href: "#about", label: "About" },
+              { href: "#projects", label: "Projects" },
+              { href: "#team", label: "Team" },
+              { href: "#contact", label: "Contact" },
+            ].map((item) => (
               <Link
-                href="#about"
+                key={item.href}
+                href={item.href}
                 className="text-sm font-medium transition-colors hover:text-primary"
                 onClick={() => setIsMenuOpen(false)}
               >
-                About
+                {item.label}
               </Link>
-              <Link
-                href="#projects"
-                className="text-sm font-medium transition-colors hover:text-primary"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Projects
-              </Link>
-              <Link
-                href="#team"
-                className="text-sm font-medium transition-colors hover:text-primary"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Team
-              </Link>
-              <Link
-                href="#contact"
-                className="text-sm font-medium transition-colors hover:text-primary"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Contact
-              </Link>
-              <div className="pt-2">
-                <SocialIcons />
-              </div>
-            </nav>
-          </div>
-        )}
+            ))}
+            <div className="pt-2">
+              <SocialIcons />
+            </div>
+          </nav>
+        </div>
       </div>
     </header>
   );

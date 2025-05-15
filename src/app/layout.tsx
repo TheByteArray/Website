@@ -10,7 +10,9 @@ export const metadata: Metadata = {
   title: "The Byte Array",
   description: "Empowering developers through open-source innovation.",
   icons: {
-    icon: "/favicon.ico",
+    icon: [
+      { url: "/favicon.svg", type: "image/svg+xml" }
+    ],
   },
 };
 

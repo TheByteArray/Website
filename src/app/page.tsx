@@ -83,7 +83,7 @@ export default function Home() {
       <section id="team" className="container mx-auto max-w-7xl px-4 py-16 md:py-20 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-[980px]">
           <h2 className="text-3xl font-bold tracking-tight mb-8">Our Team</h2>
-          <div className="flex justify-center">
+          <div>
             <Card className="w-full max-w-md">
               <CardHeader>
                 <div className="flex items-center gap-4">
