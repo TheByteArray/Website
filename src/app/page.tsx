@@ -116,7 +116,7 @@ export default function Home() {
           <Card>
             <CardHeader>
               <CardTitle>Get in Touch</CardTitle>
-              <CardDescription>We'd love to hear from you</CardDescription>
+              <CardDescription>We&apos;d love to hear from you</CardDescription>
             </CardHeader>
             <CardContent>
               <form className="space-y-4">
