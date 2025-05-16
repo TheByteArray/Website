@@ -15,29 +15,29 @@ export function SiteHeader() {
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
-          <div className="flex items-center gap-6">
+          <div className="flex items-center">
             <Link href="/" className="flex items-center space-x-2 group">
               <span className="font-bold text-xl whitespace-nowrap bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent">
                 The byte[]
               </span>
             </Link>
-            <nav className="hidden md:flex gap-6">
-              {[
-                { href: "#about", label: "About" },
-                { href: "#projects", label: "Projects" },
-                { href: "#team", label: "Team" },
-                { href: "#contact", label: "Contact" },
-              ].map((item) => (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  className="text-sm font-medium transition-colors hover:text-primary relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-primary after:transition-all hover:after:w-full"
-                >
-                  {item.label}
-                </Link>
-              ))}
-            </nav>
           </div>
+          <nav className="hidden md:flex gap-6 absolute left-1/2 transform -translate-x-1/2">
+            {[
+              { href: "#about", label: "About" },
+              { href: "#projects", label: "Projects" },
+              { href: "#team", label: "Team" },
+              { href: "#contact", label: "Contact" },
+            ].map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className="text-sm font-medium transition-colors hover:text-primary relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-primary after:transition-all hover:after:w-full"
+              >
+                {item.label}
+              </Link>
+            ))}
+          </nav>
           <div className="flex items-center gap-4">
             <div className="hidden sm:flex">
               <SocialIcons />
