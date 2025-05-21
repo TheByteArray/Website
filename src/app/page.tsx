@@ -68,7 +68,7 @@ export default function Home() {
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground">
-                  All our code is open source and available under the MIT License. We believe in the power of community-driven development.
+                  All our code is open source and available under the Apache License 2.0. We believe in the power of community-driven development.
                 </p>
               </CardContent>
             </Card>
@@ -299,7 +299,7 @@ export default function Home() {
         <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex h-14 items-center justify-between">
             <p className="text-sm text-muted-foreground">
-              © {new Date().getFullYear()} The Byte Array. MIT License.
+              © {new Date().getFullYear()} The Byte Array. Apache License 2.0.
             </p>
           </div>
         </div>
