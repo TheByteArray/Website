@@ -1,7 +1,4 @@
-import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
 import { GithubRepos } from "@/components/GithubRepos";
 import { TeamMember } from "@/components/TeamMember";
 import { HeroButtons, GitHubButton } from "@/components/interactive-buttons";
