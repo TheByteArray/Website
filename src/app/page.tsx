@@ -3,7 +3,6 @@ import { GithubRepos } from "@/components/GithubRepos";
 import { TeamMember } from "@/components/TeamMember";
 import { HeroButtons, GitHubButton, CommercialProjectsButton } from "@/components/interactive-buttons";
 import { Metadata } from "next";
-import { Button } from "@/components/ui/button";
 
 export async function generateMetadata(): Promise<Metadata> {
   return {
