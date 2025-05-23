@@ -39,4 +39,16 @@ export function GitHubButton() {
       View on GitHub
     </Button>
   );
+}
+
+export function CommercialProjectsButton() {
+  return (
+    <Button 
+      size="lg" 
+      className="bg-primary hover:bg-primary/90"
+      onClick={() => window.location.href = '/commercial-projects'}
+    >
+      View Commercial Projects
+    </Button>
+  );
 } 

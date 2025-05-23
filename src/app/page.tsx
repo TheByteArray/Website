@@ -1,9 +1,9 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { GithubRepos } from "@/components/GithubRepos";
 import { TeamMember } from "@/components/TeamMember";
-import { HeroButtons, GitHubButton } from "@/components/interactive-buttons";
-import { GitHubStats } from "@/components/github-stats";
+import { HeroButtons, GitHubButton, CommercialProjectsButton } from "@/components/interactive-buttons";
 import { Metadata } from "next";
+import { Button } from "@/components/ui/button";
 
 export async function generateMetadata(): Promise<Metadata> {
   return {
@@ -30,22 +30,25 @@ export default function Home() {
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px] dark:bg-[linear-gradient(to_right,#ffffff12_1px,transparent_1px),linear-gradient(to_bottom,#ffffff12_1px,transparent_1px)] -z-10" />
         <div className="mx-auto flex max-w-[980px] flex-col items-center gap-4 text-center">
           <div className="flex items-center gap-2 text-sm text-muted-foreground mb-4 animate-fade-in">
-            <span className="px-2 py-1 rounded-full bg-primary/10 text-primary hover:bg-primary/20 transition-colors">Open Source</span>
-            <span className="px-2 py-1 rounded-full bg-secondary/10 text-secondary-foreground hover:bg-secondary/20 transition-colors">Non-Profit</span>
+            <span className="px-3 py-1.5 rounded-full bg-primary/10 text-primary hover:bg-primary/20 transition-colors flex items-center gap-1.5">
+              <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+              </svg>
+              Open Source
+            </span>
+            <span className="px-3 py-1.5 rounded-full bg-secondary/10 text-secondary-foreground hover:bg-secondary/20 transition-colors flex items-center gap-1.5">
+              <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+              </svg>
+              Non-Profit
+            </span>
           </div>
-          <h1 className="text-3xl font-bold leading-tight tracking-tighter md:text-6xl lg:leading-[1.1] animate-fade-in-up">
+          <h1 className="text-4xl font-bold leading-tight tracking-tighter md:text-6xl lg:leading-[1.1] animate-fade-in-up bg-clip-text text-transparent bg-gradient-to-r from-foreground to-foreground/80">
             {process.env.NEXT_PUBLIC_ORGANIZATION_NAME}
           </h1>
           <p className="max-w-[750px] text-lg text-muted-foreground sm:text-xl animate-fade-in-up delay-100">
             {process.env.NEXT_PUBLIC_ORGANIZATION_DESCRIPTION}
           </p>
-          <div className="flex items-center justify-center gap-8 mt-4 animate-fade-in-up delay-200">
-            <div className="flex flex-col items-center">
-              <div className="text-2xl font-bold text-foreground">
-                <GitHubStats />
-              </div>
-            </div>
-          </div>
           <div className="animate-fade-in-up delay-300">
             <HeroButtons />
           </div>
@@ -56,15 +59,17 @@ export default function Home() {
       <section className="container mx-auto max-w-7xl px-4 py-16 md:py-20 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-[980px]">
           <div className="grid gap-6 md:grid-cols-3">
-            <Card className="contribute-card hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+            <Card className="contribute-card hover:shadow-lg transition-all duration-300 hover:-translate-y-1 group">
               <CardHeader>
-                <CardTitle className="flex items-center gap-2">
-                  <svg className="h-5 w-5 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
-                  </svg>
+                <CardTitle className="flex items-center gap-2 group-hover:text-primary transition-colors">
+                  <div className="p-2 rounded-lg bg-primary/10 group-hover:bg-primary/20 transition-colors">
+                    <svg className="h-5 w-5 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                      <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+                    </svg>
+                  </div>
                   Open Source
                 </CardTitle>
-                <CardDescription>Transparency & Collaboration</CardDescription>
+                <CardDescription className="text-base">Transparency & Collaboration</CardDescription>
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground">
@@ -72,15 +77,17 @@ export default function Home() {
                 </p>
               </CardContent>
             </Card>
-            <Card className="contribute-card hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+            <Card className="contribute-card hover:shadow-lg transition-all duration-300 hover:-translate-y-1 group">
               <CardHeader>
-                <CardTitle className="flex items-center gap-2">
-                  <svg className="h-5 w-5 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-                  </svg>
+                <CardTitle className="flex items-center gap-2 group-hover:text-primary transition-colors">
+                  <div className="p-2 rounded-lg bg-primary/10 group-hover:bg-primary/20 transition-colors">
+                    <svg className="h-5 w-5 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                    </svg>
+                  </div>
                   Privacy First
                 </CardTitle>
-                <CardDescription>User Data Protection</CardDescription>
+                <CardDescription className="text-base">User Data Protection</CardDescription>
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground">
@@ -88,18 +95,20 @@ export default function Home() {
                 </p>
               </CardContent>
             </Card>
-            <Card className="contribute-card hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+            <Card className="contribute-card hover:shadow-lg transition-all duration-300 hover:-translate-y-1 group">
               <CardHeader>
-                <CardTitle className="flex items-center gap-2">
-                  <svg className="h-5 w-5 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
-                    <circle cx="9" cy="7" r="4" />
-                    <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
-                    <path d="M16 3.13a4 4 0 0 1 0 7.75" />
-                  </svg>
+                <CardTitle className="flex items-center gap-2 group-hover:text-primary transition-colors">
+                  <div className="p-2 rounded-lg bg-primary/10 group-hover:bg-primary/20 transition-colors">
+                    <svg className="h-5 w-5 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                      <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                      <circle cx="9" cy="7" r="4" />
+                      <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                      <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                    </svg>
+                  </div>
                   Community
                 </CardTitle>
-                <CardDescription>Together We Build</CardDescription>
+                <CardDescription className="text-base">Together We Build</CardDescription>
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground">
@@ -116,22 +125,47 @@ export default function Home() {
         <div className="mx-auto max-w-[980px]">
           <Card className="contribute-card">
             <CardHeader>
-              <CardTitle className="text-2xl">About Us</CardTitle>
-              <CardDescription>Our mission and vision</CardDescription>
+              <CardTitle className="text-3xl">About Us</CardTitle>
+              <CardDescription className="text-lg">Our mission and vision</CardDescription>
             </CardHeader>
-            <CardContent>
-              <p className="text-muted-foreground">
-                The Byte Array is a community-driven organization dedicated to creating privacy-focused,
-                open-source software solutions that make life easier. Our founder, Tamim Hossain, brings
-                extensive expertise in mobile, web, and systems programming to lead our mission of
-                building innovative tools that respect user privacy while solving real-world problems.
-              </p>
-              <p className="text-muted-foreground mt-4">
-                We believe in the power of open-source development to create transparent, secure, and
-                accessible software. By making our solutions open-source, we not only ensure
-                transparency but also empower developers and users to understand, modify, and improve
-                the tools they use every day.
-              </p>
+            <CardContent className="space-y-6">
+              <div className="prose prose-gray dark:prose-invert max-w-none">
+                <p className="text-lg text-muted-foreground leading-relaxed">
+                  The Byte Array is a community-driven organization dedicated to creating privacy-focused,
+                  open-source software solutions that make life easier. Our founder, Tamim Hossain, brings
+                  extensive expertise in mobile, web, and systems programming to lead our mission of
+                  building innovative tools that respect user privacy while solving real-world problems.
+                </p>
+                <p className="text-lg text-muted-foreground leading-relaxed">
+                  We believe in the power of open-source development to create transparent, secure, and
+                  accessible software. By making our solutions open-source, we not only ensure
+                  transparency but also empower developers and users to understand, modify, and improve
+                  the tools they use every day.
+                </p>
+              </div>
+              <div className="flex flex-wrap gap-4 pt-4">
+                <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                  <svg className="h-4 w-4 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+                  </svg>
+                  <span>100% Open Source</span>
+                </div>
+                <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                  <svg className="h-4 w-4 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                  </svg>
+                  <span>Privacy Focused</span>
+                </div>
+                <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                  <svg className="h-4 w-4 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                    <circle cx="9" cy="7" r="4" />
+                    <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                    <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                  </svg>
+                  <span>Community Driven</span>
+                </div>
+              </div>
             </CardContent>
           </Card>
         </div>
@@ -177,7 +211,12 @@ export default function Home() {
       {/* Team Section */}
       <section id="team" className="container mx-auto max-w-7xl px-4 py-16 md:py-20 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-[980px]">
-          <h2 className="text-3xl font-bold tracking-tight mb-8 text-center">Our Team</h2>
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold tracking-tight mb-4">Our Team</h2>
+            <p className="text-lg text-muted-foreground max-w-[600px] mx-auto">
+              Meet the passionate individuals behind The Byte Array, dedicated to building privacy-focused software solutions.
+            </p>
+          </div>
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             <TeamMember 
               name="Tamim Hossain"
@@ -281,6 +320,9 @@ export default function Home() {
                   </div>
                 </div>
               </div>
+              <div className="flex justify-center my-8">
+                <CommercialProjectsButton />
+              </div>
               <div className="mt-8 pt-6 border-t">
                 <p className="text-center text-base text-muted-foreground">
                   Ready to start your project? Contact us at{' '}
@@ -295,11 +337,11 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer className="border-t py-6 md:py-0">
+      <footer className="border-t py-6">
         <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="flex h-14 items-center justify-between">
+          <div className="flex items-center justify-center">
             <p className="text-sm text-muted-foreground">
-              © {new Date().getFullYear()} The Byte Array. Apache License 2.0.
+              © {new Date().getFullYear()} The Byte Array. All rights reserved. Apache License 2.0.
             </p>
           </div>
         </div>
