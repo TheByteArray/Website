@@ -25,7 +25,7 @@ export default function CommercialProjects() {
       <div className="mx-auto max-w-[980px]">
         <h1 className="text-4xl font-bold tracking-tight mb-8">Commercial Projects</h1>
         
-        <div className="grid gap-6 md:grid-cols-2">
+        <div className="grid gap-6 md:grid-cols-2 items-start">
           {projects.map((project: Project) => (
             <ProjectCard
               key={project.id}

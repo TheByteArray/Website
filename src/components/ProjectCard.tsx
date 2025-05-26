@@ -24,17 +24,30 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
       <CardContent>
         <div className="space-y-3">
           <div>
-            <p className={cn(
-              "text-sm text-muted-foreground",
-              !isExpanded && "line-clamp-2"
+            <div className={cn(
+              "overflow-hidden transition-all duration-300 ease-in-out",
+              !isExpanded && "max-h-12"
             )}>
-              {project.longDescription}
-            </p>
+              <p className="text-sm text-muted-foreground">
+                {project.longDescription}
+              </p>
+            </div>
             <button
               onClick={onToggleExpand}
-              className="text-sm text-primary hover:text-primary/80 transition-colors mt-1"
+              className="text-sm text-primary hover:text-primary/80 transition-all duration-200 mt-2 flex items-center gap-1"
             >
               {isExpanded ? 'Show Less' : 'See More'}
+              <svg 
+                className={cn(
+                  "h-3 w-3 transition-transform duration-200",
+                  isExpanded && "rotate-180"
+                )}
+                fill="none" 
+                stroke="currentColor" 
+                viewBox="0 0 24 24"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+              </svg>
             </button>
           </div>
           
@@ -49,7 +62,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
             ))}
           </div>
 
-          <div className="pt-2 flex gap-2">
+          <div className="pt-2 flex gap-2 flex-wrap">
             <button 
               onClick={handleContactClick}
               className="inline-block px-4 py-2 bg-primary text-primary-foreground rounded-md hover:bg-primary/90 transition-colors text-sm"
@@ -64,6 +77,16 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
                 className="inline-block px-4 py-2 bg-secondary text-secondary-foreground rounded-md hover:bg-secondary/90 transition-colors text-sm"
               >
                 View on App Store
+              </a>
+            )}
+            {project.playStoreUrl && (
+              <a 
+                href={project.playStoreUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block px-4 py-2 bg-secondary text-secondary-foreground rounded-md hover:bg-secondary/90 transition-colors text-sm"
+              >
+                View on Google Play
               </a>
             )}
           </div>

@@ -6,6 +6,7 @@ export interface Project {
   tags: string[];
   features: string[];
   appStoreUrl?: string;
+  playStoreUrl?: string;
 }
 
 export interface ProjectCardProps {

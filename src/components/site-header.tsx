@@ -7,9 +7,24 @@ import { Button } from "./ui/button";
 import { useState } from "react";
 import { SocialIcons } from "./social-icons";
 import { cn } from "@/lib/utils";
+import { usePathname } from "next/navigation";
 
 export function SiteHeader() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const pathname = usePathname();
+
+  const handleNavClick = (href: string) => {
+    if (pathname === '/') {
+      // If we're on the home page, just scroll to the section
+      const element = document.getElementById(href.substring(1));
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    } else {
+      // If we're on a different page, navigate to home page with the hash
+      window.location.href = `/${href}`;
+    }
+  };
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -29,13 +44,13 @@ export function SiteHeader() {
               { href: "#team", label: "Team" },
               { href: "#contact", label: "Contact" },
             ].map((item) => (
-              <Link
+              <button
                 key={item.href}
-                href={item.href}
+                onClick={() => handleNavClick(item.href)}
                 className="text-sm font-medium transition-colors hover:text-primary relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-primary after:transition-all hover:after:w-full"
               >
                 {item.label}
-              </Link>
+              </button>
             ))}
           </nav>
           <div className="flex items-center gap-4">
@@ -68,14 +83,16 @@ export function SiteHeader() {
               { href: "#team", label: "Team" },
               { href: "#contact", label: "Contact" },
             ].map((item) => (
-              <Link
+              <button
                 key={item.href}
-                href={item.href}
-                className="text-sm font-medium transition-colors hover:text-primary"
-                onClick={() => setIsMenuOpen(false)}
+                onClick={() => {
+                  handleNavClick(item.href);
+                  setIsMenuOpen(false);
+                }}
+                className="text-sm font-medium transition-colors hover:text-primary text-left"
               >
                 {item.label}
-              </Link>
+              </button>
             ))}
             <div className="pt-2">
               <SocialIcons />

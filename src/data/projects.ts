@@ -16,7 +16,7 @@ export const projects: Project[] = [
   },
   {
     id: 2,
-    title: "InConnect Client",
+    title: "InConnect Client iOS",
     description: "iOS Xray VPN Client with Go Integration",
     longDescription: "Built a custom iOS VPN client from scratch for the Xray protocol. Implemented a custom Go wrapper for Xray core with tun2socks integration and backend API integration. The client features a modern SwiftUI interface with advanced network management capabilities and seamless integration with iOS system services.",
     tags: ["Swift", "SwiftUI", "Go", "Xray", "VPN"],
@@ -27,5 +27,19 @@ export const projects: Project[] = [
       "Modern SwiftUI interface"
     ],
     appStoreUrl: "https://apps.apple.com/us/app/inconnect-client/id6745726030"
+  },
+  {
+    id: 3,
+    title: "InConnect Client Android",
+    description: "Android Xray VPN Client with Jetpack Compose",
+    longDescription: "Android version of the InConnect client built from scratch for the Xray protocol. Implemented using modern Android development practices with Jetpack Compose for the UI and Kotlin for native Android functionality. Features a custom Go wrapper for Xray core integration, advanced VPN management capabilities, and seamless integration with Android system services.",
+    tags: ["Jetpack Compose", "Kotlin", "Golang", "Xray", "VPN"],
+    features: [
+      "Modern Jetpack Compose UI",
+      "Custom Go wrapper for Xray core",
+      "Native Android VPN integration",
+      "Advanced network management"
+    ],
+    playStoreUrl: "https://play.google.com/store/apps/details?id=com.qtech.inct"
   }
 ]; 
