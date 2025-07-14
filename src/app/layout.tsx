@@ -9,14 +9,14 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   metadataBase: new URL('https://thebytearray.org'),
   title: {
-    default: 'The Byte Array - Open Source Software Organization',
+    default: 'The Byte Array Ltd - Open Source Software Development Company',
     template: '%s | The Byte Array'
   },
-  description: 'Building privacy-focused open-source solutions for a better digital life. Join our community of developers and contribute to innovative software projects.',
-  keywords: ['open source', 'software development', 'privacy', 'non-profit', 'The Byte Array', 'github', 'developer community'],
-  authors: [{ name: 'The Byte Array Team' }],
-  creator: 'The Byte Array',
-  publisher: 'The Byte Array',
+  description: 'The Byte Array Ltd is a UK-based software development company specializing in privacy-focused open-source solutions. Building innovative technologies that prioritize user privacy and data protection.',
+  keywords: ['open source', 'software development', 'privacy', 'UK company', 'The Byte Array', 'github', 'developer community', 'private limited company', 'London', 'software engineering', 'mobile apps', 'web development'],
+  authors: [{ name: 'The Byte Array Ltd' }],
+  creator: 'The Byte Array Ltd',
+  publisher: 'The Byte Array Ltd',
   formatDetection: {
     email: false,
     address: false,
@@ -24,11 +24,11 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: 'website',
-    locale: 'en_US',
+    locale: 'en_GB',
     url: 'https://thebytearray.org',
-    title: 'The Byte Array - Open Source Software Organization',
-    description: 'Building privacy-focused open-source solutions for a better digital life.',
-    siteName: 'The Byte Array',
+    title: 'The Byte Array Ltd - Open Source Software Development Company',
+    description: 'UK-based software development company specializing in privacy-focused open-source solutions and innovative technologies.',
+    siteName: 'The Byte Array Ltd',
     images: [
       {
         url: '/og-image.png',
@@ -69,6 +69,40 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <head>
         <link rel="canonical" href="https://thebytearray.org" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Corporation",
+              "name": "The Byte Array Ltd",
+              "legalName": "THE BYTE ARRAY LTD",
+              "identifier": "16581435",
+              "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "124 City Road",
+                "addressLocality": "London",
+                "postalCode": "EC1V 2NX",
+                "addressCountry": "GB"
+              },
+              "url": "https://thebytearray.org",
+              "description": "UK-based software development company specializing in privacy-focused open-source solutions and innovative technologies.",
+              "foundingDate": "2024",
+              "founder": {
+                "@type": "Person",
+                "name": "Tamim Hossain"
+              },
+              "sameAs": [
+                "https://github.com/TheByteArray"
+              ],
+              "contactPoint": {
+                "@type": "ContactPoint",
+                "contactType": "customer service",
+                "email": "contact@thebytearray.org"
+              }
+            }),
+          }}
+        />
       </head>
       <body className={`${inter.className} min-h-screen bg-background font-sans antialiased`}>
         <ThemeProvider
