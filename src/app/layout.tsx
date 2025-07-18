@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     siteName: 'The Byte Array Ltd',
     images: [
       {
-        url: '/og-image.png',
+        url: '/favicon.svg',
         width: 1200,
         height: 630,
         alt: 'The Byte Array - Open Source Software Organization'

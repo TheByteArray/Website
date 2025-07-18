@@ -63,6 +63,11 @@ export function GithubRepos() {
     setCurrentPage(nextPage);
   };
 
+  const showLess = () => {
+    setDisplayedRepos(repos.slice(0, ITEMS_PER_PAGE));
+    setCurrentPage(1);
+  };
+
   const toggleDescription = (repoKey: string) => {
     setExpandedDescriptions(prev => {
       const newState = { ...prev };
@@ -190,8 +195,8 @@ export function GithubRepos() {
           );
         })}
       </div>
-      {displayedRepos.length < repos.length && (
-        <div className="flex justify-center">
+      <div className="flex justify-center gap-4">
+        {displayedRepos.length < repos.length && (
           <Button
             variant="outline"
             onClick={loadMore}
@@ -199,8 +204,17 @@ export function GithubRepos() {
           >
             See More Projects
           </Button>
-        </div>
-      )}
+        )}
+        {displayedRepos.length > ITEMS_PER_PAGE && (
+          <Button
+            variant="outline"
+            onClick={showLess}
+            className="mt-4"
+          >
+            See Less Projects
+          </Button>
+        )}
+      </div>
     </div>
   );
 } 

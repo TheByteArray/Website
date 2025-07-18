@@ -14,6 +14,12 @@ export function SiteHeader() {
   const pathname = usePathname();
 
   const handleNavClick = (href: string) => {
+    if (href === '/blog') {
+      // Navigate to blog page
+      window.location.href = '/blog';
+      return;
+    }
+    
     if (pathname === '/') {
       // If we're on the home page, just scroll to the section
       const element = document.getElementById(href.substring(1));
@@ -42,21 +48,23 @@ export function SiteHeader() {
               { href: "#about", label: "About" },
               { href: "#projects", label: "Projects" },
               { href: "#team", label: "Team" },
+              { href: "/blog", label: "Blog" },
               { href: "#contact", label: "Contact" },
             ].map((item) => (
               <button
                 key={item.href}
                 onClick={() => handleNavClick(item.href)}
-                className="text-sm font-medium transition-colors hover:text-primary relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-primary after:transition-all hover:after:w-full"
+                className={cn(
+                  "text-sm font-medium transition-colors hover:text-primary relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-primary after:transition-all hover:after:w-full",
+                  pathname === item.href && "text-primary after:w-full"
+                )}
               >
                 {item.label}
               </button>
             ))}
           </nav>
-          <div className="flex items-center gap-4">
-            <div className="hidden sm:flex">
+          <div className="flex items-center space-x-4">
               <SocialIcons />
-            </div>
             <ThemeToggle />
             <Button
               variant="ghost"
@@ -70,17 +78,14 @@ export function SiteHeader() {
           </div>
         </div>
         {/* Mobile menu */}
-        <div
-          className={cn(
-            "md:hidden overflow-hidden transition-all duration-300 ease-in-out",
-            isMenuOpen ? "max-h-64" : "max-h-0"
-          )}
-        >
-          <nav className="flex flex-col gap-4 pb-4">
+        {isMenuOpen && (
+          <div className="md:hidden">
+            <div className="space-y-1 px-2 pb-3 pt-2 border-t">
             {[
               { href: "#about", label: "About" },
               { href: "#projects", label: "Projects" },
               { href: "#team", label: "Team" },
+                { href: "/blog", label: "Blog" },
               { href: "#contact", label: "Contact" },
             ].map((item) => (
               <button
@@ -89,16 +94,17 @@ export function SiteHeader() {
                   handleNavClick(item.href);
                   setIsMenuOpen(false);
                 }}
-                className="text-sm font-medium transition-colors hover:text-primary text-left"
+                  className={cn(
+                    "block w-full text-left px-3 py-2 rounded-md text-base font-medium transition-colors hover:text-primary hover:bg-primary/10",
+                    pathname === item.href && "text-primary bg-primary/10"
+                  )}
               >
                 {item.label}
               </button>
             ))}
-            <div className="pt-2">
-              <SocialIcons />
             </div>
-          </nav>
         </div>
+        )}
       </div>
     </header>
   );
