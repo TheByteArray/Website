@@ -128,47 +128,57 @@
 @layer base {
   :root {
     --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --foreground: 240 10% 3.9%;
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 240 10% 3.9%;
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-    --primary: 221.2 83.2% 53.3%;
-    --primary-foreground: 210 40% 98%;
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --popover-foreground: 240 10% 3.9%;
+    --primary: 240 5.9% 10%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 240 4.8% 95.9%;
+    --secondary-foreground: 240 5.9% 10%;
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+    --accent: 240 4.8% 95.9%;
+    --accent-foreground: 240 5.9% 10%;
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 221.2 83.2% 53.3%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 240 10% 3.9%;
+    --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
     --radius: 0.5rem;
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-    --primary: 217.2 91.2% 59.8%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 240 5.9% 10%;
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+    --accent: 240 3.7% 15.9%;
+    --accent-foreground: 0 0% 98%;
     --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 224.3 76.3% 48%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 240 4.9% 83.9%;
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
   }
 }
 
@@ -196,28 +206,38 @@
   }
 }
 
+/* Hero gradient */
 .hero-gradient {
-  background: linear-gradient(135deg, hsl(var(--primary) / 0.1) 0%, hsl(var(--secondary) / 0.1) 100%);
+  background: linear-gradient(135deg, hsl(var(--background)) 0%, hsl(var(--muted)) 100%);
 }
 
+/* Contribute card styles */
 .contribute-card {
-  @apply relative overflow-hidden;
-  background: linear-gradient(135deg, hsl(var(--primary) / 0.05) 0%, hsl(var(--secondary) / 0.05) 100%);
+  @apply transition-all duration-300 hover:shadow-lg hover:-translate-y-1 bg-card border-border;
 }
 
-.contribute-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  border: 1px solid hsl(var(--primary) / 0.1);
-  border-radius: inherit;
-  pointer-events: none;
+/* Animation classes */
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-in-out;
 }
 
-@keyframes fade-in {
+.animate-fade-in-up {
+  animation: fadeInUp 0.5s ease-in-out;
+}
+
+.delay-100 {
+  animation-delay: 0.1s;
+}
+
+.delay-200 {
+  animation-delay: 0.2s;
+}
+
+.delay-300 {
+  animation-delay: 0.3s;
+}
+
+@keyframes fadeIn {
   from {
     opacity: 0;
   }
@@ -226,10 +246,10 @@
   }
 }
 
-@keyframes fade-in-up {
+@keyframes fadeInUp {
   from {
     opacity: 0;
-    transform: translateY(10px);
+    transform: translateY(20px);
   }
   to {
     opacity: 1;
@@ -237,24 +257,132 @@
   }
 }
 
-.animate-fade-in {
-  animation: fade-in 0.5s ease-out forwards;
+/* Basic syntax highlighting for code blocks */
+.language-javascript .token.keyword,
+.language-typescript .token.keyword,
+.language-js .token.keyword,
+.language-ts .token.keyword {
+  color: #c586c0;
 }
 
-.animate-fade-in-up {
-  animation: fade-in-up 0.5s ease-out forwards;
+.language-javascript .token.string,
+.language-typescript .token.string,
+.language-js .token.string,
+.language-ts .token.string {
+  color: #ce9178;
 }
 
-.delay-100 {
-  animation-delay: 100ms;
+.language-javascript .token.comment,
+.language-typescript .token.comment,
+.language-js .token.comment,
+.language-ts .token.comment {
+  color: #6a9955;
+  font-style: italic;
 }
 
-.delay-200 {
-  animation-delay: 200ms;
+.language-javascript .token.number,
+.language-typescript .token.number,
+.language-js .token.number,
+.language-ts .token.number {
+  color: #b5cea8;
+}
+
+.language-javascript .token.function,
+.language-typescript .token.function,
+.language-js .token.function,
+.language-ts .token.function {
+  color: #dcdcaa;
+}
+
+.language-python .token.keyword {
+  color: #569cd6;
+}
+
+.language-python .token.string {
+  color: #ce9178;
+}
+
+.language-python .token.comment {
+  color: #6a9955;
+  font-style: italic;
+}
+
+.language-bash .token.function {
+  color: #569cd6;
+}
+
+.language-bash .token.string {
+  color: #ce9178;
+}
+
+/* Dark mode adjustments */
+.dark .language-javascript .token.keyword,
+.dark .language-typescript .token.keyword,
+.dark .language-js .token.keyword,
+.dark .language-ts .token.keyword {
+  color: #c586c0;
+}
+
+.dark .language-javascript .token.string,
+.dark .language-typescript .token.string,
+.dark .language-js .token.string,
+.dark .language-ts .token.string {
+  color: #ce9178;
+}
+
+.dark .language-python .token.keyword {
+  color: #569cd6;
+}
+
+.dark .language-python .token.string {
+  color: #ce9178;
+}
+
+/* Light mode adjustments */
+.light .language-javascript .token.keyword,
+.light .language-typescript .token.keyword,
+.light .language-js .token.keyword,
+.light .language-ts .token.keyword {
+  color: #0000ff;
+}
+
+.light .language-javascript .token.string,
+.light .language-typescript .token.string,
+.light .language-js .token.string,
+.light .language-ts .token.string {
+  color: #a31515;
+}
+
+.light .language-python .token.keyword {
+  color: #0000ff;
+}
+
+.light .language-python .token.string {
+  color: #a31515;
 }
 
 .bg-grid-white\/10 {
   background-image: linear-gradient(to right, rgba(255, 255, 255, 0.1) 1px, transparent 1px),
     linear-gradient(to bottom, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
   background-size: 24px 24px;
+}
+
+/* Blog image styling */
+.prose img {
+  @apply rounded-lg shadow-sm;
+  max-width: 100%;
+  height: auto;
+}
+
+article img {
+  @apply rounded-lg shadow-sm;
+  max-width: 100%;
+  height: auto;
+}
+
+/* MDX content image styling */
+.mdx-content img {
+  @apply rounded-lg shadow-sm;
+  max-width: 100%;
+  height: auto;
 }
