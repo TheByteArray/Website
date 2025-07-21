@@ -257,114 +257,18 @@
   }
 }
 
-/* Basic syntax highlighting for code blocks */
-.language-javascript .token.keyword,
-.language-typescript .token.keyword,
-.language-js .token.keyword,
-.language-ts .token.keyword {
-  color: #c586c0;
+/* Enhanced syntax highlighting for code blocks */
+pre[class*="language-"] {
+  @apply rounded-lg border;
 }
 
-.language-javascript .token.string,
-.language-typescript .token.string,
-.language-js .token.string,
-.language-ts .token.string {
-  color: #ce9178;
+code[class*="language-"] {
+  @apply font-mono text-sm;
 }
 
-.language-javascript .token.comment,
-.language-typescript .token.comment,
-.language-js .token.comment,
-.language-ts .token.comment {
-  color: #6a9955;
-  font-style: italic;
-}
-
-.language-javascript .token.number,
-.language-typescript .token.number,
-.language-js .token.number,
-.language-ts .token.number {
-  color: #b5cea8;
-}
-
-.language-javascript .token.function,
-.language-typescript .token.function,
-.language-js .token.function,
-.language-ts .token.function {
-  color: #dcdcaa;
-}
-
-.language-python .token.keyword {
-  color: #569cd6;
-}
-
-.language-python .token.string {
-  color: #ce9178;
-}
-
-.language-python .token.comment {
-  color: #6a9955;
-  font-style: italic;
-}
-
-.language-bash .token.function {
-  color: #569cd6;
-}
-
-.language-bash .token.string {
-  color: #ce9178;
-}
-
-/* Dark mode adjustments */
-.dark .language-javascript .token.keyword,
-.dark .language-typescript .token.keyword,
-.dark .language-js .token.keyword,
-.dark .language-ts .token.keyword {
-  color: #c586c0;
-}
-
-.dark .language-javascript .token.string,
-.dark .language-typescript .token.string,
-.dark .language-js .token.string,
-.dark .language-ts .token.string {
-  color: #ce9178;
-}
-
-.dark .language-python .token.keyword {
-  color: #569cd6;
-}
-
-.dark .language-python .token.string {
-  color: #ce9178;
-}
-
-/* Light mode adjustments */
-.light .language-javascript .token.keyword,
-.light .language-typescript .token.keyword,
-.light .language-js .token.keyword,
-.light .language-ts .token.keyword {
-  color: #0000ff;
-}
-
-.light .language-javascript .token.string,
-.light .language-typescript .token.string,
-.light .language-js .token.string,
-.light .language-ts .token.string {
-  color: #a31515;
-}
-
-.light .language-python .token.keyword {
-  color: #0000ff;
-}
-
-.light .language-python .token.string {
-  color: #a31515;
-}
-
-.bg-grid-white\/10 {
-  background-image: linear-gradient(to right, rgba(255, 255, 255, 0.1) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
-  background-size: 24px 24px;
+/* Ensure syntax highlighter respects theme */
+.react-syntax-highlighter-line-number {
+  @apply text-muted-foreground;
 }
 
 /* Blog image styling */
