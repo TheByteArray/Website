@@ -1,4 +1,10 @@
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { GithubRepos } from "@/components/GithubRepos";
 import { TeamMember } from "@/components/TeamMember";
 
@@ -7,16 +13,18 @@ import { Metadata } from "next";
 
 export async function generateMetadata(): Promise<Metadata> {
   return {
-    title: 'Home',
-    description: 'Welcome to The Byte Array Ltd - A UK-based software development company specializing in privacy-focused open-source solutions and innovative technologies.',
+    title: "Home",
+    description:
+      "Welcome to The Byte Array Ltd - A UK-based opensource software development company specializing in privacy-focused open-source solutions and innovative technologies.",
     alternates: {
-      canonical: 'https://thebytearray.org'
+      canonical: "https://thebytearray.org",
     },
     openGraph: {
-      title: 'The Byte Array Ltd - Home',
-      description: 'Welcome to The Byte Array Ltd - A UK-based software development company specializing in privacy-focused open-source solutions and innovative technologies.',
-      url: 'https://thebytearray.org',
-    }
+      title: "The Byte Array Ltd - Home",
+      description:
+        "Welcome to The Byte Array Ltd - A UK-based opensource software development company specializing in privacy-focused open-source solutions and innovative technologies.",
+      url: "https://thebytearray.org",
+    },
   };
 }
 
@@ -32,13 +40,25 @@ export default function Home() {
           <div className="mx-auto flex max-w-4xl flex-col items-center gap-6 text-center">
             <div className="flex flex-wrap items-center justify-center gap-3 text-sm text-muted-foreground mb-6 animate-fade-in">
               <span className="px-4 py-2 rounded-full bg-primary/10 text-primary hover:bg-primary/20 transition-colors flex items-center gap-2 text-sm">
-                <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <svg
+                  className="h-4 w-4"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                >
                   <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
                 </svg>
                 Open Source
               </span>
               <span className="px-4 py-2 rounded-full bg-secondary/10 text-secondary-foreground hover:bg-secondary/20 transition-colors flex items-center gap-2 text-sm">
-                <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <svg
+                  className="h-4 w-4"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                >
                   <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
                 </svg>
                 Privacy First
@@ -62,17 +82,27 @@ export default function Home() {
               <CardHeader className="pb-4">
                 <CardTitle className="flex items-center gap-3 group-hover:text-primary transition-colors text-xl">
                   <div className="p-3 rounded-lg bg-primary/10 group-hover:bg-primary/20 transition-colors">
-                    <svg className="h-6 w-6 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <svg
+                      className="h-6 w-6 text-primary"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                    >
                       <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
                     </svg>
                   </div>
                   Open Source
                 </CardTitle>
-                <CardDescription className="text-base font-medium">Transparency & Collaboration</CardDescription>
+                <CardDescription className="text-base font-medium">
+                  Transparency & Collaboration
+                </CardDescription>
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground leading-relaxed">
-                  All our code is open source and available under the Apache License 2.0. We believe in the power of community-driven development.
+                  All our code is open source and available under the Apache
+                  License 2.0. We believe in the power of community-driven
+                  development.
                 </p>
               </CardContent>
             </Card>
@@ -80,17 +110,26 @@ export default function Home() {
               <CardHeader className="pb-4">
                 <CardTitle className="flex items-center gap-3 group-hover:text-primary transition-colors text-xl">
                   <div className="p-3 rounded-lg bg-primary/10 group-hover:bg-primary/20 transition-colors">
-                    <svg className="h-6 w-6 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <svg
+                      className="h-6 w-6 text-primary"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                    >
                       <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
                     </svg>
                   </div>
                   Privacy First
                 </CardTitle>
-                <CardDescription className="text-base font-medium">User Data Protection</CardDescription>
+                <CardDescription className="text-base font-medium">
+                  User Data Protection
+                </CardDescription>
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground leading-relaxed">
-                  We prioritize user privacy in everything we build. Your data belongs to you, and we&apos;re committed to protecting it.
+                  We prioritize user privacy in everything we build. Your data
+                  belongs to you, and we&apos;re committed to protecting it.
                 </p>
               </CardContent>
             </Card>
@@ -98,7 +137,13 @@ export default function Home() {
               <CardHeader className="pb-4">
                 <CardTitle className="flex items-center gap-3 group-hover:text-primary transition-colors text-xl">
                   <div className="p-3 rounded-lg bg-primary/10 group-hover:bg-primary/20 transition-colors">
-                    <svg className="h-6 w-6 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <svg
+                      className="h-6 w-6 text-primary"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                    >
                       <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
                       <circle cx="9" cy="7" r="4" />
                       <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
@@ -107,11 +152,14 @@ export default function Home() {
                   </div>
                   Community
                 </CardTitle>
-                <CardDescription className="text-base font-medium">Together We Build</CardDescription>
+                <CardDescription className="text-base font-medium">
+                  Together We Build
+                </CardDescription>
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground leading-relaxed">
-                  Join our growing community of developers, contributors, and users who share our vision for better software.
+                  Join our growing community of developers, contributors, and
+                  users who share our vision for better software.
                 </p>
               </CardContent>
             </Card>
@@ -125,27 +173,38 @@ export default function Home() {
           <Card className="contribute-card">
             <CardHeader className="pb-6">
               <CardTitle className="text-3xl md:text-4xl">About Us</CardTitle>
-              <CardDescription className="text-lg text-muted-foreground">Our mission and vision</CardDescription>
+              <CardDescription className="text-lg text-muted-foreground">
+                Our mission and vision
+              </CardDescription>
             </CardHeader>
             <CardContent className="space-y-8">
               <div className="prose prose-gray dark:prose-invert max-w-none">
                 <p className="text-lg text-muted-foreground leading-relaxed mb-6">
-                  The Byte Array Ltd is a UK-based software development company specializing in privacy-focused,
-                  open-source software solutions. Founded by Tamim Hossain, our company leverages extensive
-                  expertise in mobile, web, and systems programming to deliver innovative technologies that
-                  respect user privacy while solving real-world problems.
+                  The Byte Array Ltd is a UK-based software development company
+                  specializing in privacy-focused, open-source software
+                  solutions. Founded by Tamim Hossain, our company leverages
+                  extensive expertise in mobile, web, and systems programming to
+                  deliver innovative technologies that respect user privacy
+                  while solving real-world problems.
                 </p>
                 <p className="text-lg text-muted-foreground leading-relaxed">
-                  As a private limited company, we maintain our commitment to open-source development, creating
-                  transparent, secure, and accessible software solutions. Our open-source approach ensures
-                  transparency while empowering developers and users to understand, modify, and improve
-                  the technologies they use.
+                  As a private limited company, we maintain our commitment to
+                  open-source development, creating transparent, secure, and
+                  accessible software solutions. Our open-source approach
+                  ensures transparency while empowering developers and users to
+                  understand, modify, and improve the technologies they use.
                 </p>
               </div>
               <div className="flex flex-wrap gap-6 pt-4 border-t border-border">
                 <div className="flex items-center gap-3 text-sm text-muted-foreground">
                   <div className="p-2 rounded-lg bg-primary/10">
-                    <svg className="h-4 w-4 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <svg
+                      className="h-4 w-4 text-primary"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                    >
                       <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
                     </svg>
                   </div>
@@ -153,7 +212,13 @@ export default function Home() {
                 </div>
                 <div className="flex items-center gap-3 text-sm text-muted-foreground">
                   <div className="p-2 rounded-lg bg-primary/10">
-                    <svg className="h-4 w-4 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <svg
+                      className="h-4 w-4 text-primary"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                    >
                       <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
                     </svg>
                   </div>
@@ -161,7 +226,13 @@ export default function Home() {
                 </div>
                 <div className="flex items-center gap-3 text-sm text-muted-foreground">
                   <div className="p-2 rounded-lg bg-primary/10">
-                    <svg className="h-4 w-4 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <svg
+                      className="h-4 w-4 text-primary"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                    >
                       <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
                       <circle cx="9" cy="7" r="4" />
                       <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
@@ -183,9 +254,12 @@ export default function Home() {
       <section id="projects" className="py-16 md:py-24 bg-muted/30">
         <div className="container mx-auto max-w-6xl px-6">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">Our Projects</h2>
+            <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
+              Our Projects
+            </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Explore our open-source projects and contributions to the developer community.
+              Explore our open-source projects and contributions to the
+              developer community.
             </p>
           </div>
           <GithubRepos />
@@ -196,14 +270,17 @@ export default function Home() {
       <section id="team" className="py-16 md:py-24">
         <div className="container mx-auto max-w-6xl px-6">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-6">Our Team</h2>
+            <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-6">
+              Our Team
+            </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-              Meet the passionate individuals behind The Byte Array Ltd, dedicated to building privacy-focused software solutions.
+              Meet the passionate individuals behind The Byte Array Ltd,
+              dedicated to building privacy-focused software solutions.
             </p>
           </div>
           <div className="flex justify-center">
             <div className="w-full max-w-sm">
-              <TeamMember 
+              <TeamMember
                 name="Tamim Hossain"
                 role="Founder & Lead Developer"
                 github="codewithtamim"
@@ -222,11 +299,12 @@ export default function Home() {
               124 City Road, London, EC1V 2NX, United Kingdom
             </p>
             <p className="text-sm text-muted-foreground">
-              © {new Date().getFullYear()} The Byte Array Ltd. All rights reserved.
+              © {new Date().getFullYear()} The Byte Array Ltd. All rights
+              reserved.
             </p>
           </div>
         </div>
       </footer>
     </>
-  )
+  );
 }
