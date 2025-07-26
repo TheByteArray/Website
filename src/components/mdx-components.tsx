@@ -71,21 +71,48 @@ export const MDXComponents: MDXComponentsType = {
       {children}
     </blockquote>
   ),
-  code: ({ children }) => (
-    <code className="bg-muted px-2 py-1 rounded-md text-sm font-mono text-primary">
-      {children}
-    </code>
-  ),
-  pre: ({ children, ...props }: { children: React.ReactNode; className?: string }) => {
-    // Extract language from className (e.g., "language-javascript")
-    const className = props.className || ''
-    const languageMatch = className.match(/language-(\w+)/)
-    const language = languageMatch ? languageMatch[1] : 'text'
+  code: ({ children, className }) => {
+    // If this code element is inside a pre (code block), don't render inline styling
+    const isInlineCode = !className || !className.includes('language-')
     
+    if (isInlineCode) {
+      return (
+        <code className="bg-muted px-2 py-1 rounded-md text-sm font-mono text-primary">
+          {children}
+        </code>
+      )
+    }
+    
+    // For code blocks, return the children as-is (will be handled by pre)
+    return <>{children}</>
+  },
+  pre: ({ children, ...props }: { children: React.ReactNode; className?: string }) => {
+    // Extract the code element and its props
+    const codeElement = React.Children.toArray(children)[0] as React.ReactElement
+    
+    if (codeElement && codeElement.props && typeof codeElement.props === 'object') {
+      const codeProps = codeElement.props as { className?: string; children?: React.ReactNode }
+      const { className = '', children: codeContent } = codeProps
+      const languageMatch = className.match(/language-(\w+)/)
+      const language = languageMatch ? languageMatch[1] : 'text'
+      
+      // Extract the actual code content
+      const code = typeof codeContent === 'string' ? codeContent : 
+        Array.isArray(codeContent) ? codeContent.join('') :
+        String(codeContent || '')
+      
+      return (
+        <CodeBlock language={language}>
+          {code.trim()}
+        </CodeBlock>
+      )
+    }
+    
+    // Fallback for non-code pre blocks
     return (
-      <CodeBlock language={language}>
+      <pre className="bg-muted p-4 rounded-lg overflow-x-auto text-sm">
         {children}
-      </CodeBlock>
+      </pre>
     )
   },
   a: ({ children, href }) => (

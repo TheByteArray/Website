@@ -11,7 +11,7 @@ export function MDXContent({ code }: MDXContentProps) {
   const MDXComponent = useMDXComponent(code)
   
   return (
-    <div className="prose prose-slate dark:prose-invert max-w-none">
+    <div className="mdx-content">
       <MDXComponent components={MDXComponents} />
     </div>
   )

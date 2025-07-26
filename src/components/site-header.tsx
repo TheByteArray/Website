@@ -34,16 +34,18 @@ export function SiteHeader() {
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div className="container mx-auto max-w-6xl px-4 sm:px-6">
         <div className="flex h-16 items-center justify-between">
-          <div className="flex items-center">
+          <div className="flex items-center min-w-0 flex-1 sm:flex-initial">
             <Link href="/" className="flex items-center space-x-2 group">
-              <span className="font-bold text-xl whitespace-nowrap bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent">
+              <span className="font-bold text-lg sm:text-xl whitespace-nowrap bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent truncate">
                 The byte[]
               </span>
             </Link>
           </div>
-          <nav className="hidden md:flex gap-6 absolute left-1/2 transform -translate-x-1/2">
+          
+          {/* Desktop Navigation */}
+          <nav className="hidden lg:flex gap-6 absolute left-1/2 transform -translate-x-1/2">
             {[
               { href: "#about", label: "About" },
               { href: "#projects", label: "Projects" },
@@ -63,13 +65,17 @@ export function SiteHeader() {
               </button>
             ))}
           </nav>
-          <div className="flex items-center space-x-4">
+          
+          {/* Right side actions */}
+          <div className="flex items-center space-x-2 sm:space-x-3">
+            <div className="hidden sm:block">
               <SocialIcons />
+            </div>
             <ThemeToggle />
             <Button
               variant="ghost"
               size="icon"
-              className="md:hidden"
+              className="lg:hidden flex-shrink-0"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
             >
               <Menu className="h-5 w-5" />
@@ -77,33 +83,40 @@ export function SiteHeader() {
             </Button>
           </div>
         </div>
+        
         {/* Mobile menu */}
         {isMenuOpen && (
-          <div className="md:hidden">
-            <div className="space-y-1 px-2 pb-3 pt-2 border-t">
-            {[
-              { href: "#about", label: "About" },
-              { href: "#projects", label: "Projects" },
-              { href: "#team", label: "Team" },
+          <div className="lg:hidden">
+            <div className="space-y-1 px-2 pb-4 pt-2 border-t">
+              {/* Mobile Social Icons */}
+              <div className="sm:hidden pb-3 border-b border-border mb-3">
+                <SocialIcons />
+              </div>
+              
+              {/* Mobile Navigation */}
+              {[
+                { href: "#about", label: "About" },
+                { href: "#projects", label: "Projects" },
+                { href: "#team", label: "Team" },
                 { href: "/blog", label: "Blog" },
-              { href: "#contact", label: "Contact" },
-            ].map((item) => (
-              <button
-                key={item.href}
-                onClick={() => {
-                  handleNavClick(item.href);
-                  setIsMenuOpen(false);
-                }}
+                { href: "#contact", label: "Contact" },
+              ].map((item) => (
+                <button
+                  key={item.href}
+                  onClick={() => {
+                    handleNavClick(item.href);
+                    setIsMenuOpen(false);
+                  }}
                   className={cn(
                     "block w-full text-left px-3 py-2 rounded-md text-base font-medium transition-colors hover:text-primary hover:bg-primary/10",
                     pathname === item.href && "text-primary bg-primary/10"
                   )}
-              >
-                {item.label}
-              </button>
-            ))}
+                >
+                  {item.label}
+                </button>
+              ))}
             </div>
-        </div>
+          </div>
         )}
       </div>
     </header>
